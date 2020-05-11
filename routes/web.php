@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('users', 'UserController@index')->name('user.index');
+Route::get('users', 'Web\UserController@index')->name('user.index');
 Route::get('login', 'UserController@login')->name('login');
 Route::get('register', 'UserController@register')->name('register');
 
-Route::resource('users', 'UserController');
+//Route::resource('users', 'UserController');
