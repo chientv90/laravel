@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Traits\UseCamelCaseAttributes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, UseCamelCaseAttributes;
 
     /**
      * The attributes that are mass assignable.
@@ -37,6 +38,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @return mixed
+     */
     public function getActivedUsers()
     {
         return $this->whereNotNull('email_verified_at')
