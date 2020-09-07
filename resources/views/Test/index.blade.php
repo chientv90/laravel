@@ -1,2 +1,7 @@
 @extends('layouts.app')
-Hello Test
+
+@section('content')
+    <div id="app">
+        <example-component></example-component>
+    </div>
+@endsection
